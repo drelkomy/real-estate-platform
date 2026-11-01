@@ -124,3 +124,4 @@ HEALTHCHECK --interval=15s --timeout=5s --start-period=30s --retries=3 \
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+

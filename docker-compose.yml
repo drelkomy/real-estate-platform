@@ -54,3 +54,4 @@ networks:
 volumes:
   app_storage:
   app_logs:
+
