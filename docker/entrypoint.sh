@@ -16,6 +16,9 @@ mkdir -p \
 chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Ensure safe directory for git
+git config --global --add safe.directory /var/www/html 2>/dev/null || true
+
 # Re-create storage symlink cleanly
 rm -f /var/www/html/public/storage
 php /var/www/html/artisan storage:link || ln -sf /var/www/html/storage/app/public /var/www/html/public/storage
