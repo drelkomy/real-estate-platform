@@ -49,7 +49,6 @@ services:
       - ./docker/nginx.conf:/etc/nginx/http.d/default.conf:ro
       - ./docker/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
       - ./docker/entrypoint.sh:/usr/local/bin/entrypoint.sh:ro
-      - app_build:/var/www/html/public/build
       - app_logs:/var/www/html/storage/logs
 
     networks:
@@ -60,7 +59,6 @@ networks:
     external: true
 
 volumes:
-  app_build:
   app_storage:
   app_logs:
 

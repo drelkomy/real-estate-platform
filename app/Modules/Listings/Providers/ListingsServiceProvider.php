@@ -16,3 +16,4 @@ class ListingsServiceProvider extends ServiceProvider
         //
     }
 }
+
