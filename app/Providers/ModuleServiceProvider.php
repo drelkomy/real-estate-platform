@@ -35,4 +35,3 @@ class ModuleServiceProvider extends ServiceProvider
         //
     }
 }
-

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <title>{{ $title ?? config('app.name', 'Real Estate Platform') }} | {{ __('Premium Properties') }}</title>
 
     {{-- Force Light Mode on Public Interface --}}
@@ -31,11 +31,15 @@
                 extend: {
                     colors: {
                         brand: {
-                            blue: '#003580',
-                            navy: '#002b66',
-                            darkNavy: '#001e47',
-                            cyan: '#00AEEF',
-                            yellow: '#FEBB02',
+                            navy: '#071529',
+                            navyLight: '#0A1B33',
+                            navySurface: '#0D2342',
+                            navyDark: '#040D1A',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            goldLighter: '#FDF7E7',
+                            goldDark: '#AA7C11',
+                            goldMuted: '#996515',
                             emerald: '#10B981',
                         }
                     },
