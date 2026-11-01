@@ -6,6 +6,10 @@ services:
     image: real-estate-platform-app:latest
     container_name: real-estate-platform-app
     restart: unless-stopped
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+      - 8.8.8.8
     ports:
       - "${APP_PORT:-3009}:3000"
     environment:
