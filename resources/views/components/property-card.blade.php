@@ -4,17 +4,17 @@
     $isRtl = app()->getLocale() === 'ar';
     $purpose = $property['purpose'] ?? 'sale'; // 'sale' or 'rent'
     $price = $property['price'] ?? 0;
-    $currency = $property['currency'] ?? ($isRtl ? 'ر.س' : 'SAR');
+    $currency = $property['currency'] ?? __('property.currency');
     $priceFormatted = number_format($price) . ' ' . $currency;
     if ($purpose === 'rent') {
-        $priceFormatted .= ' / ' . ($isRtl ? 'سنوياً' : 'yr');
+        $priceFormatted .= ' / ' . __('property.yearly');
     }
     $whatsappPhone = '966500000000';
-    $whatsappText = urlencode(($isRtl ? 'مرحباً، أود الاستفسار عن العقار: ' : 'Hello, I want to inquire about: ') . ($property['title'] ?? ''));
+    $whatsappText = urlencode(__('property.whatsapp_inquiry', ['title' => ($property['title'] ?? '')]));
     $whatsappUrl = "https://wa.me/{$whatsappPhone}?text={$whatsappText}";
 @endphp
 
-<div class="group bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-2xl hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1">
+<div class="group bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-sm hover:shadow-2xl hover:border-[#D4AF37]/50 transition-all duration-300 flex flex-col justify-between transform hover:-translate-y-1 font-cairo">
 
     {{-- Card Image & Overlays --}}
     <div class="relative h-56 sm:h-64 overflow-hidden bg-slate-100">
@@ -32,12 +32,12 @@
             {{-- Purpose Badge (Sale / Rent) in Navy & Gold --}}
             <div class="flex items-center gap-1.5">
                 <span class="px-3 py-1 rounded-full text-xs font-black shadow-sm {{ $purpose === 'sale' ? 'bg-[#071529] text-[#D4AF37] border border-[#D4AF37]/40' : 'bg-emerald-600 text-white' }}">
-                    {{ $purpose === 'sale' ? ($isRtl ? 'للبيع' : 'For Sale') : ($isRtl ? 'للإيجار' : 'For Rent') }}
+                    {{ $purpose === 'sale' ? __('property.for_sale') : __('property.for_rent') }}
                 </span>
                 @if(!empty($property['is_featured']))
                     <span class="px-2.5 py-1 rounded-full bg-gradient-to-r from-[#E5C158] via-[#D4AF37] to-[#AA7C11] text-slate-950 text-[11px] font-black shadow-sm flex items-center gap-1">
                         <i class="fas fa-crown text-[10px]"></i>
-                        <span>{{ $isRtl ? 'VIP مميز' : 'VIP' }}</span>
+                        <span>{{ __('property.vip') }}</span>
                     </span>
                 @endif
             </div>
@@ -45,7 +45,7 @@
             {{-- Wishlist Heart Button --}}
             <button type="button"
                     class="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md hover:bg-white text-slate-600 hover:text-rose-500 shadow-md flex items-center justify-center transition-transform hover:scale-110 cursor-pointer"
-                    title="{{ __('Add to Favorites') }}">
+                    title="{{ __('nav.favorites') }}">
                 <i class="fas fa-heart text-xs"></i>
             </button>
         </div>
@@ -54,7 +54,7 @@
         <div class="absolute bottom-3 {{ $isRtl ? 'right-3' : 'left-3' }} z-10 flex items-center gap-1.5">
             <span class="px-2.5 py-0.5 rounded-md bg-[#071529]/90 backdrop-blur-md text-[#F3E5AB] border border-[#D4AF37]/40 text-[10px] font-black shadow-xs flex items-center gap-1">
                 <i class="fas fa-certificate text-[#D4AF37]"></i>
-                <span>{{ $isRtl ? 'معلن موثق فال' : 'Verified Broker' }}</span>
+                <span>{{ __('property.verified_broker') }}</span>
             </span>
         </div>
     </div>
@@ -66,7 +66,7 @@
             <div class="flex items-center justify-between gap-2 mb-2 text-xs">
                 <span class="font-extrabold text-[#AA7C11] uppercase tracking-wider flex items-center gap-1">
                     <i class="fas fa-tag text-[10px]"></i>
-                    <span>{{ $property['category_name'] ?? __('Property') }}</span>
+                    <span>{{ $property['category_name'] ?? __('categories.all_types') }}</span>
                 </span>
                 <span class="text-slate-400 font-mono text-[11px]">
                     #{{ $property['reference_id'] ?? rand(1000, 9999) }}
@@ -87,16 +87,16 @@
             {{-- Key Specs: Beds, Baths, Area --}}
             <div class="grid grid-cols-3 gap-2 py-2.5 border-y border-slate-100 text-center mb-3 bg-slate-50/50 rounded-xl">
                 <div class="flex flex-col items-center">
-                    <span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fas fa-bed text-[#D4AF37]"></i> {{ $isRtl ? 'غرف' : 'Beds' }}</span>
+                    <span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fas fa-bed text-[#D4AF37]"></i> {{ __('property.beds') }}</span>
                     <span class="text-xs font-black text-slate-800 mt-0.5">{{ $property['bedrooms'] ?? '—' }}</span>
                 </div>
                 <div class="flex flex-col items-center border-x border-slate-200/80">
-                    <span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fas fa-bath text-[#D4AF37]"></i> {{ $isRtl ? 'حمامات' : 'Baths' }}</span>
+                    <span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fas fa-bath text-[#D4AF37]"></i> {{ __('property.baths') }}</span>
                     <span class="text-xs font-black text-slate-800 mt-0.5">{{ $property['bathrooms'] ?? '—' }}</span>
                 </div>
                 <div class="flex flex-col items-center">
-                    <span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fas fa-vector-square text-[#D4AF37]"></i> {{ $isRtl ? 'المساحة' : 'Area' }}</span>
-                    <span class="text-xs font-black text-slate-800 mt-0.5">{{ $property['area'] ?? '—' }} م²</span>
+                    <span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fas fa-vector-square text-[#D4AF37]"></i> {{ __('property.area') }}</span>
+                    <span class="text-xs font-black text-slate-800 mt-0.5">{{ $property['area'] ?? '—' }} {{ __('property.sqm') }}</span>
                 </div>
             </div>
         </div>
@@ -106,13 +106,13 @@
             {{-- Price Row --}}
             <div class="flex items-baseline justify-between gap-2 mb-3">
                 <div>
-                    <span class="text-[11px] text-slate-400 block font-bold">{{ $isRtl ? 'السعر المطلوب:' : 'Price:' }}</span>
+                    <span class="text-[11px] text-slate-400 block font-bold">{{ __('property.price_label') }}</span>
                     <span class="text-base sm:text-lg font-black text-[#071529] tracking-tight">
                         {{ $priceFormatted }}
                     </span>
                 </div>
                 <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
-                    {{ $isRtl ? 'قابل للتفاوض' : 'Negotiable' }}
+                    {{ __('property.negotiable') }}
                 </span>
             </div>
 
@@ -124,13 +124,13 @@
                    rel="noopener noreferrer"
                    class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black text-center transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer">
                     <i class="fab fa-whatsapp text-sm"></i>
-                    <span>{{ $isRtl ? 'واتساب' : 'WhatsApp' }}</span>
+                    <span>{{ __('property.whatsapp') }}</span>
                 </a>
 
                 {{-- View Details --}}
                 <a href="#"
                    class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-[#071529] hover:text-[#D4AF37] hover:border hover:border-[#D4AF37]/50 text-slate-800 text-xs font-black text-center transition flex items-center justify-center gap-1.5 cursor-pointer">
-                    <span>{{ $isRtl ? 'التفاصيل' : 'Details' }}</span>
+                    <span>{{ __('property.details') }}</span>
                     <i class="fas {{ $isRtl ? 'fa-arrow-left' : 'fa-arrow-right' }} text-[10px]"></i>
                 </a>
             </div>

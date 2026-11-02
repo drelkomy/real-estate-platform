@@ -23,13 +23,13 @@
                         </span>
                         <span class="block text-[10px] text-[#D4AF37] font-black uppercase tracking-wider flex items-center gap-1">
                             <i class="fas fa-crown text-[8px]"></i>
-                            <span>{{ __('Luxury Real Estate Hub') }}</span>
+                            <span>{{ __('footer.brand_hub') }}</span>
                         </span>
                     </div>
                 </div>
 
                 <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
-                    {{ __('Your premier gateway for verified residential and commercial luxury properties, executive penthouses, mansions, and strategic land developments.') }}
+                    {{ __('footer.about_text') }}
                 </p>
 
                 {{-- Official License Badge --}}
@@ -38,8 +38,8 @@
                         <i class="fas fa-certificate"></i>
                     </div>
                     <div>
-                        <p class="text-xs font-black text-white">{{ __('REGA & FAL Certified') }}</p>
-                        <p class="text-[10.5px] text-[#D4AF37] font-bold">{{ __('Authorized Brokerage License #12000045') }}</p>
+                        <p class="text-xs font-black text-white">{{ __('footer.rega_certified') }}</p>
+                        <p class="text-[10.5px] text-[#D4AF37] font-bold">{{ __('footer.fal_license_number') }}</p>
                     </div>
                 </div>
 
@@ -77,43 +77,43 @@
             <div class="lg:col-span-3">
                 <h4 class="font-black text-sm text-[#F3E5AB] uppercase tracking-wider mb-4 border-b border-[#D4AF37]/30 pb-2.5 flex items-center gap-2">
                     <i class="fas fa-compass text-[#D4AF37] text-xs"></i>
-                    <span>{{ $footerIsRtl ? 'استكشف المنصة' : 'Explore Platform' }}</span>
+                    <span>{{ __('footer.explore_title') }}</span>
                 </h4>
                 <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
                     <li>
-                        <a href="#featured-properties" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ __('Luxury Villas & Mansions') }}</span>
+                        <a href="#categories" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-[#D4AF37] text-[10px] group-hover:-translate-x-1 transition-transform"></i>
+                            <span>{{ __('footer.explore_villas') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#featured-properties" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ __('Modern Apartments & Penthouses') }}</span>
+                        <a href="#categories" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-[#D4AF37] text-[10px] group-hover:-translate-x-1 transition-transform"></i>
+                            <span>{{ __('footer.explore_apartments') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#featured-properties" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ __('Coastal Chalets & Resorts') }}</span>
+                        <a href="#categories" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-[#D4AF37] text-[10px] group-hover:-translate-x-1 transition-transform"></i>
+                            <span>{{ __('footer.explore_chalets') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#categories" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ __('Commercial Towers & Offices') }}</span>
+                        <a href="#categories" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-[#D4AF37] text-[10px] group-hover:-translate-x-1 transition-transform"></i>
+                            <span>{{ __('footer.explore_commercial') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#destinations" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ __('Top Cities') }}</span>
+                        <a href="#destinations" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-[#D4AF37] text-[10px] group-hover:-translate-x-1 transition-transform"></i>
+                            <span>{{ __('footer.explore_cities') }}</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ route('register') }}" class="text-[#D4AF37] font-bold hover:underline transition flex items-center gap-1.5">
-                            <i class="fas fa-handshake text-xs"></i>
-                            <span>{{ $footerIsRtl ? 'انضم كوسيط أو شريك معتمد' : 'Join as Certified Broker' }}</span>
+                    <li class="pt-2">
+                        <a href="{{ route('register') }}" class="inline-flex items-center gap-1.5 text-xs font-black text-[#D4AF37] hover:text-white transition">
+                            <i class="fas fa-handshake"></i>
+                            <span>{{ __('footer.join_broker') }}</span>
                         </a>
                     </li>
                 </ul>
@@ -123,37 +123,37 @@
             <div class="lg:col-span-2">
                 <h4 class="font-black text-sm text-[#F3E5AB] uppercase tracking-wider mb-4 border-b border-[#D4AF37]/30 pb-2.5 flex items-center gap-2">
                     <i class="fas fa-balance-scale text-[#D4AF37] text-xs"></i>
-                    <span>{{ $footerIsRtl ? 'الحوكمة والسياسات' : 'Terms & Policies' }}</span>
+                    <span>{{ __('footer.governance_title') }}</span>
                 </h4>
                 <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
                     <li>
-                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ $footerIsRtl ? 'الشروط والأحكام' : 'Terms of Service' }}</span>
+                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-slate-500 text-[10px]"></i>
+                            <span>{{ __('footer.terms') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ $footerIsRtl ? 'سياسة الخصوصية' : 'Privacy Policy' }}</span>
+                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-slate-500 text-[10px]"></i>
+                            <span>{{ __('footer.privacy') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ $footerIsRtl ? 'معايير الإعلانات العقارية' : 'Listing Standards' }}</span>
+                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-slate-500 text-[10px]"></i>
+                            <span>{{ __('footer.ad_standards') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ $footerIsRtl ? 'رخصة فال والهيئة العامة' : 'FAL Regulations' }}</span>
+                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-slate-500 text-[10px]"></i>
+                            <span>{{ __('footer.fal_rega') }}</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5">
-                            <i class="fas fa-chevron-left text-[9px] text-[#D4AF37]"></i>
-                            <span>{{ $footerIsRtl ? 'الأسئلة الشائعة' : 'FAQ' }}</span>
+                        <a href="#" class="hover:text-[#D4AF37] transition flex items-center gap-1.5 group">
+                            <i class="fas fa-angle-left text-slate-500 text-[10px]"></i>
+                            <span>{{ __('footer.faq') }}</span>
                         </a>
                     </li>
                 </ul>
@@ -163,35 +163,35 @@
             <div class="lg:col-span-3">
                 <h4 class="font-black text-sm text-[#F3E5AB] uppercase tracking-wider mb-4 border-b border-[#D4AF37]/30 pb-2.5 flex items-center gap-2">
                     <i class="fas fa-shield-alt text-[#D4AF37] text-xs"></i>
-                    <span>{{ $footerIsRtl ? 'الموثوقية والأمان' : 'Trust & Safety' }}</span>
+                    <span>{{ __('footer.trust_title') }}</span>
                 </h4>
                 <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
                     <li class="flex items-start gap-2">
                         <i class="fas fa-certificate text-[#D4AF37] text-sm mt-0.5 shrink-0"></i>
                         <div>
-                            <span class="block font-bold text-white">{{ $footerIsRtl ? 'عقارات معتمدة برخصة فال' : 'FAL Certified Properties' }}</span>
-                            <span class="block text-[11px] text-slate-400">{{ $footerIsRtl ? 'مطابقة لأنظمة الهيئة العامة للعقار' : 'REGA Compliant Brokerage' }}</span>
+                            <span class="block font-bold text-white">{{ __('footer.fal_certified') }}</span>
+                            <span class="block text-[11px] text-slate-400">{{ __('footer.fal_certified_desc') }}</span>
                         </div>
                     </li>
                     <li class="flex items-start gap-2">
                         <i class="fas fa-file-signature text-emerald-400 text-sm mt-0.5 shrink-0"></i>
                         <div>
-                            <span class="block font-bold text-white">{{ $footerIsRtl ? 'عقود إلكترونية رسمية' : 'Legally Binding Contracts' }}</span>
-                            <span class="block text-[11px] text-slate-400">{{ $footerIsRtl ? 'عبر منصة إيجار والأنظمة الرسمية' : 'Official Government Portals' }}</span>
+                            <span class="block font-bold text-white">{{ __('footer.electronic_contracts') }}</span>
+                            <span class="block text-[11px] text-slate-400">{{ __('footer.electronic_contracts_desc') }}</span>
                         </div>
                     </li>
                     <li class="flex items-start gap-2">
                         <i class="fas fa-lock text-[#D4AF37] text-sm mt-0.5 shrink-0"></i>
                         <div>
-                            <span class="block font-bold text-white">{{ $footerIsRtl ? 'حماية وخصوصية تامة' : 'Bank-Grade Security' }}</span>
-                            <span class="block text-[11px] text-slate-400">{{ $footerIsRtl ? 'تشفير بيانات وفق المعايير البنكية' : 'SSL Encrypted Operations' }}</span>
+                            <span class="block font-bold text-white">{{ __('footer.security_title') }}</span>
+                            <span class="block text-[11px] text-slate-400">{{ __('footer.security_desc') }}</span>
                         </div>
                     </li>
                     <li class="flex items-start gap-2">
                         <i class="fas fa-headset text-sky-400 text-sm mt-0.5 shrink-0"></i>
                         <div>
-                            <span class="block font-bold text-white">{{ $footerIsRtl ? 'مستشار عقاري متخصص 24/7' : '24/7 Dedicated Support' }}</span>
-                            <span class="block text-[11px] text-slate-400">{{ $footerIsRtl ? 'استشارات ومرافقة لإتمام الصفقات' : 'VIP Transaction Advisors' }}</span>
+                            <span class="block font-bold text-white">{{ __('footer.support_title') }}</span>
+                            <span class="block text-[11px] text-slate-400">{{ __('footer.support_desc') }}</span>
                         </div>
                     </li>
                 </ul>
@@ -206,16 +206,16 @@
             <div class="flex items-center gap-2 text-slate-400 order-2 md:order-1">
                 <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] font-bold text-slate-300">
                     <i class="fas fa-shield-alt text-[#D4AF37]"></i>
-                    <span>فال #12000045</span>
+                    <span>{{ __('footer.fal_badge') }}</span>
                 </span>
                 <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[11px] font-bold text-slate-300">
-                    <span>الهيئة العامة للعقار</span>
+                    <span>{{ __('footer.rega_badge') }}</span>
                 </span>
             </div>
 
             {{-- Centered Copyright Text --}}
             <div class="text-center order-1 md:order-2 font-bold">
-                &copy; {{ date('Y') }} &mdash; {{ __('All rights reserved to') }}
+                &copy; {{ date('Y') }} &mdash; {{ __('footer.all_rights_reserved') }}
                 <strong class="text-white">{{ config('app.name', 'Real Estate Platform') }}</strong>
             </div>
 
@@ -224,11 +224,10 @@
                 <i class="fab fa-cc-visa hover:text-white transition" title="Visa"></i>
                 <i class="fab fa-cc-mastercard hover:text-white transition" title="Mastercard"></i>
                 <i class="fab fa-cc-apple-pay hover:text-white transition" title="Apple Pay"></i>
-                <span class="text-xs font-bold text-slate-300 px-1.5 py-0.5 rounded bg-white/10 border border-white/15">مدى mada</span>
+                <span class="text-xs font-bold text-slate-300 px-1.5 py-0.5 rounded bg-white/10 border border-white/15">{{ __('footer.mada') }}</span>
             </div>
 
         </div>
 
     </div>
 </footer>
-

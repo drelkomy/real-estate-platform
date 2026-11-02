@@ -23,7 +23,9 @@
     {{-- FontAwesome 6 Icons --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    {{-- Leaflet Maps CSS & JS (Local high-performance assets) --}}
+    {{-- Maps CSS & JS (Local high-performance assets: MapLibre 3D & Leaflet) --}}
+    <link rel="stylesheet" href="{{ asset('vendor/maplibre/maplibre-gl.css') }}" />
+    <script src="{{ asset('vendor/maplibre/maplibre-gl.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('vendor/leaflet/leaflet.css') }}" />
     <script src="{{ asset('vendor/leaflet/leaflet.js') }}"></script>
 

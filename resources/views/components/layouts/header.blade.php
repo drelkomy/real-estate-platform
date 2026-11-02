@@ -21,7 +21,7 @@
                     </span>
                     <span class="block text-[10px] text-[#AA7C11] font-bold uppercase tracking-wider flex items-center gap-1">
                         <i class="fas fa-crown text-[8px] text-[#D4AF37]"></i>
-                        <span>{{ __('Luxury Real Estate Hub') }}</span>
+                        <span>{{ __('nav.brand_hub') }}</span>
                     </span>
                 </div>
             </a>
@@ -30,23 +30,23 @@
             <nav class="hidden lg:flex items-center gap-8">
                 <a href="#featured-properties"
                    class="text-sm font-bold text-slate-700 hover:text-[#AA7C11] transition-colors py-1 hover:underline underline-offset-4 decoration-2 decoration-[#D4AF37]">
-                    {{ __('Buy') }}
+                    {{ __('nav.buy') }}
                 </a>
                 <a href="#featured-properties"
                    class="text-sm font-bold text-slate-700 hover:text-[#AA7C11] transition-colors py-1 hover:underline underline-offset-4 decoration-2 decoration-[#D4AF37]">
-                    {{ __('Rent') }}
+                    {{ __('nav.rent') }}
                 </a>
                 <a href="#categories"
                    class="text-sm font-bold text-slate-700 hover:text-[#AA7C11] transition-colors py-1 hover:underline underline-offset-4 decoration-2 decoration-[#D4AF37]">
-                    {{ __('Property Types') }}
+                    {{ __('nav.property_types') }}
                 </a>
                 <a href="#destinations"
                    class="text-sm font-bold text-slate-700 hover:text-[#AA7C11] transition-colors py-1 hover:underline underline-offset-4 decoration-2 decoration-[#D4AF37]">
-                    {{ __('Top Cities') }}
+                    {{ __('nav.top_cities') }}
                 </a>
                 <a href="#vip-alerts"
                    class="text-sm font-bold text-slate-700 hover:text-[#AA7C11] transition-colors py-1 hover:underline underline-offset-4 decoration-2 decoration-[#D4AF37]">
-                    {{ __('Mortgage') }}
+                    {{ __('nav.mortgage') }}
                 </a>
             </nav>
 
@@ -56,7 +56,7 @@
                 {{-- 1. Notifications Icon --}}
                 <button type="button"
                         class="p-2 text-slate-600 hover:text-[#071529] hover:bg-slate-100 rounded-lg transition cursor-pointer relative"
-                        title="{{ __('Notifications') }}">
+                        title="{{ __('nav.notifications') }}">
                     <i class="far fa-bell text-base"></i>
                     <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-amber-500 rounded-full"></span>
                 </button>
@@ -67,7 +67,7 @@
                 {{-- 2. Favorites Icon --}}
                 <button type="button"
                         class="p-2 text-slate-600 hover:text-rose-600 hover:bg-slate-100 rounded-lg transition cursor-pointer"
-                        title="{{ __('Favorites') }}">
+                        title="{{ __('nav.favorites') }}">
                     <i class="far fa-heart text-base"></i>
                 </button>
 
@@ -77,7 +77,7 @@
                 {{-- 3. Compare Properties Icon --}}
                 <button type="button"
                         class="p-2 text-slate-600 hover:text-[#071529] hover:bg-slate-100 rounded-lg transition cursor-pointer"
-                        title="{{ __('Compare') }}">
+                        title="{{ __('nav.compare') }}">
                     <i class="fas fa-exchange-alt text-sm"></i>
                 </button>
 
@@ -87,38 +87,38 @@
                 {{-- 4. User Account / Auth Actions --}}
                 @auth
                     <a href="{{ route('admin.dashboard') }}"
-                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold transition">
-                        <i class="fas fa-th-large text-xs text-[#AA7C11]"></i>
-                        <span>{{ __('Dashboard') }}</span>
+                       class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">
+                        <i class="fas fa-th-large text-[#AA7C11]"></i>
+                        <span>{{ __('nav.dashboard') }}</span>
                     </a>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <button type="submit"
                                 class="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition cursor-pointer"
-                                title="{{ __('Logout') }}">
+                                title="{{ __('nav.logout') }}">
                             <i class="fas fa-sign-out-alt text-sm"></i>
                         </button>
                     </form>
                 @else
                     <a href="{{ route('login') }}"
                        class="p-2 text-slate-600 hover:text-[#071529] hover:bg-slate-100 rounded-lg transition cursor-pointer flex items-center gap-1"
-                       title="{{ __('Sign In') }}">
+                       title="{{ __('nav.sign_in') }}">
                         <i class="far fa-user text-base"></i>
-                        <span class="text-xs font-bold hidden md:inline">{{ __('Sign In') }}</span>
+                        <span class="text-xs font-bold hidden md:inline">{{ __('nav.sign_in') }}</span>
                     </a>
                     <a href="{{ route('register') }}"
                        class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-lg bg-[#071529] hover:bg-[#0A1B33] text-[#D4AF37] hover:text-[#F3E5AB] text-xs font-black shadow-xs transition">
-                        <span>{{ __('Register') }}</span>
+                        <span>{{ __('nav.register') }}</span>
                     </a>
                 @endauth
 
                 {{-- Divider --}}
                 <span class="text-slate-300 select-none">|</span>
 
-                {{-- 5. Language Switcher (Globe + عربي) --}}
+                {{-- 5. Language Switcher (Globe + Language) --}}
                 <div class="flex items-center gap-1 px-2 py-1 text-xs font-bold text-slate-700 hover:text-slate-900 cursor-pointer select-none">
                     <i class="fas fa-globe text-slate-500 text-xs"></i>
-                    <span>عربي</span>
+                    <span>{{ __('nav.current_language') }}</span>
                     <i class="fas fa-chevron-down text-[9px] text-slate-400"></i>
                 </div>
 
@@ -159,28 +159,27 @@
          x-transition:leave-end="opacity-0 -translate-y-2"
          class="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-2 shadow-lg">
         <a href="#featured-properties" @click="mobileMenuOpen = false" class="block py-2 text-sm font-bold text-slate-800 hover:text-[#AA7C11] border-b border-slate-100">
-            {{ __('Buy') }}
+            {{ __('nav.buy') }}
         </a>
         <a href="#featured-properties" @click="mobileMenuOpen = false" class="block py-2 text-sm font-bold text-slate-800 hover:text-[#AA7C11] border-b border-slate-100">
-            {{ __('Rent') }}
+            {{ __('nav.rent') }}
         </a>
         <a href="#categories" @click="mobileMenuOpen = false" class="block py-2 text-sm font-bold text-slate-800 hover:text-[#AA7C11] border-b border-slate-100">
-            {{ __('Property Types') }}
+            {{ __('nav.property_types') }}
         </a>
         <a href="#destinations" @click="mobileMenuOpen = false" class="block py-2 text-sm font-bold text-slate-800 hover:text-[#AA7C11] border-b border-slate-100">
-            {{ __('Top Cities') }}
+            {{ __('nav.top_cities') }}
         </a>
         <a href="#vip-alerts" @click="mobileMenuOpen = false" class="block py-2 text-sm font-bold text-slate-800 hover:text-[#AA7C11]">
-            {{ __('Mortgage') }}
+            {{ __('nav.mortgage') }}
         </a>
         <div class="pt-2 border-t border-slate-200 flex items-center justify-between">
-            <span class="text-xs text-slate-500 font-bold">اللغة: عربي</span>
+            <span class="text-xs text-slate-500 font-bold">{{ __('nav.language_label') }}</span>
             @guest
                 <a href="{{ route('register') }}" class="px-3 py-1.5 rounded-lg bg-[#071529] text-[#D4AF37] text-xs font-black">
-                    {{ __('Register') }}
+                    {{ __('nav.register') }}
                 </a>
             @endguest
         </div>
     </div>
 </header>
-

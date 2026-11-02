@@ -5,55 +5,43 @@
     $categoriesList = [
         [
             'id' => 'villas',
-            'title_ar' => 'فلل وقصور فاخرة',
-            'title_en' => 'Luxury Villas & Mansions',
-            'count' => '+850 عقار متاح',
-            'count_en' => '850+ Properties',
+            'title' => __('categories.villas'),
+            'count' => __('categories.count_villas'),
             'icon' => 'fa-landmark',
             'color' => '#D4AF37',
         ],
         [
             'id' => 'apartments',
-            'title_ar' => 'شقق وبنتهاوس عصرية',
-            'title_en' => 'Apartments & Penthouses',
-            'count' => '+1,420 عقار متاح',
-            'count_en' => '1,420+ Properties',
+            'title' => __('categories.apartments'),
+            'count' => __('categories.count_apartments'),
             'icon' => 'fa-building',
             'color' => '#AA7C11',
         ],
         [
             'id' => 'duplex',
-            'title_ar' => 'دوبلكس وتاون هاوس',
-            'title_en' => 'Duplex & Townhouses',
-            'count' => '+620 عقار متاح',
-            'count_en' => '620+ Properties',
+            'title' => __('categories.duplex'),
+            'count' => __('categories.count_duplex'),
             'icon' => 'fa-layer-group',
             'color' => '#D4AF37',
         ],
         [
             'id' => 'chalets',
-            'title_ar' => 'شاليهات ومنتجعات ساحلية',
-            'title_en' => 'Chalets & Resorts',
-            'count' => '+410 عقار متاح',
-            'count_en' => '410+ Properties',
+            'title' => __('categories.chalets'),
+            'count' => __('categories.count_chalets'),
             'icon' => 'fa-umbrella-beach',
             'color' => '#AA7C11',
         ],
         [
             'id' => 'commercial',
-            'title_ar' => 'أبراج ومكاتب تجارية',
-            'title_en' => 'Commercial Towers',
-            'count' => '+380 عقار متاح',
-            'count_en' => '380+ Properties',
+            'title' => __('categories.commercial'),
+            'count' => __('categories.count_commercial'),
             'icon' => 'fa-briefcase',
             'color' => '#D4AF37',
         ],
         [
             'id' => 'lands',
-            'title_ar' => 'مخططات وأراضي استثمارية',
-            'title_en' => 'Investment Lands',
-            'count' => '+290 عقار متاح',
-            'count_en' => '290+ Properties',
+            'title' => __('categories.lands'),
+            'count' => __('categories.count_lands'),
             'icon' => 'fa-map-marked-alt',
             'color' => '#AA7C11',
         ],
@@ -69,13 +57,13 @@
         <div>
             <span class="text-xs sm:text-sm font-black text-[#AA7C11] uppercase tracking-wider block mb-1 flex items-center gap-1.5">
                 <i class="fas fa-th-large text-xs text-[#D4AF37]"></i>
-                <span>{{ $catIsRtl ? 'تصفح حسب نوع العقار' : 'Explore by Category' }}</span>
+                <span>{{ __('categories.badge') }}</span>
             </span>
             <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-tight">
-                {{ $catIsRtl ? 'اختر العقار المناسب لاحتياجاتك' : 'Find The Perfect Property For Your Needs' }}
+                {{ __('categories.title') }}
             </h2>
             <p class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                {{ $catIsRtl ? 'عقارات متنوعة موثقة برخص رسمية ومطابقة لأعلى معايير الجودة' : 'Verified residential & commercial real estate meeting highest standards' }}
+                {{ __('categories.subtitle') }}
             </p>
         </div>
 
@@ -84,7 +72,7 @@
                     wire:click="setCategory('all')"
                     class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition cursor-pointer self-start sm:self-auto">
                 <i class="fas fa-times text-[10px]"></i>
-                <span>{{ $catIsRtl ? 'عرض كل التصنيفات' : 'View All Categories' }}</span>
+                <span>{{ __('categories.view_all') }}</span>
             </button>
         @endif
     </div>
@@ -105,12 +93,12 @@
 
                 {{-- Category Title --}}
                 <h3 class="font-black text-xs sm:text-sm leading-snug mb-1 {{ $isActive ? 'text-white' : 'text-slate-900 group-hover:text-[#071529]' }}">
-                    {{ $catIsRtl ? $item['title_ar'] : $item['title_en'] }}
+                    {{ $item['title'] }}
                 </h3>
 
                 {{-- Available Count Badge --}}
                 <span class="inline-block text-[10.5px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full mt-1.5 transition-colors {{ $isActive ? 'bg-white/15 text-[#F3E5AB]' : 'bg-slate-100 group-hover:bg-[#D4AF37]/15 text-slate-500 group-hover:text-[#AA7C11]' }}">
-                    {{ $catIsRtl ? $item['count'] : $item['count_en'] }}
+                    {{ $item['count'] }}
                 </span>
 
             </div>

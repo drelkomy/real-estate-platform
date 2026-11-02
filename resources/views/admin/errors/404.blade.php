@@ -33,7 +33,7 @@
         </div>
 
         <div class="flex items-center justify-center gap-3 pt-2">
-            <a href="{{ LaravelLocalization::getLocalizedURL(app()->getLocale(), '/admin') }}"
+            <a href="{{ url('/admin') }}"
                class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#064E3B] hover:bg-[#0D9488] text-white text-xs font-extrabold shadow-lg transition-all border-0">
                 <i class="fas {{ __('fa-arrow-left') }} text-xs"></i>
                 <span>{{ __('Return to Dashboard') }}</span>
