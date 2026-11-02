@@ -23,6 +23,10 @@
     {{-- FontAwesome 6 Icons --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    {{-- Leaflet Maps CSS & JS (Local high-performance assets) --}}
+    <link rel="stylesheet" href="{{ asset('vendor/leaflet/leaflet.css') }}" />
+    <script src="{{ asset('vendor/leaflet/leaflet.js') }}"></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 
@@ -39,16 +43,16 @@
 </head>
 <body class="min-h-screen flex flex-col font-cairo bg-slate-50 text-slate-900 antialiased selection:bg-[#071529] selection:text-[#D4AF37]">
 
-    {{-- 1. Navigation Header (ملف منفصل مستقل) --}}
-    @include('components.layouts.home-header')
+    {{-- 1. Navigation Header (Global Reusable Layout Component) --}}
+    @include('components.layouts.header')
 
     {{-- 2. Main Page Content --}}
     <main class="flex-1">
         {{ $slot }}
     </main>
 
-    {{-- 3. Footer (ملف منفصل مستقل) --}}
-    @include('components.layouts.home-footer')
+    {{-- 3. Footer (Global Reusable Layout Component) --}}
+    @include('components.layouts.footer')
 
     @livewireScripts
 </body>

@@ -93,7 +93,7 @@
 
             @foreach($destinations as $dest)
                 @php
-                    $isCityActive = ($selectedCity === $dest['id']);
+                    $isCityActive = (($selectedCity ?? '') === $dest['id']);
                 @endphp
                 <div wire:click="$set('selectedCity', '{{ $isCityActive ? '' : $dest['id'] }}')"
                      class="group relative h-40 sm:h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 {{ $isCityActive ? 'ring-4 ring-[#D4AF37] scale-[1.03]' : 'border border-slate-200/80 hover:border-[#D4AF37]/50' }}">
@@ -133,7 +133,7 @@
                     {{ $isRtl ? 'أحدث العروض العقارية المتاحة' : 'Latest Available Properties' }}
                 </h2>
                 <p class="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
-                    {{ $isRtl ? "عرض {$totalCount} عقار يطابق معايير البحث الحالية" : "Showing {$totalCount} properties matching current criteria" }}
+                    {{ $isRtl ? 'عرض ' . ($totalCount ?? (isset($properties) ? $properties->count() : 0)) . ' عقار يطابق معايير البحث الحالية' : 'Showing ' . ($totalCount ?? (isset($properties) ? $properties->count() : 0)) . ' properties matching current criteria' }}
                 </p>
             </div>
 

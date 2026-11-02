@@ -200,6 +200,10 @@ class HomePage extends Component
         return view('livewire.home.home-page', [
             'properties' => $filtered,
             'totalCount' => $filtered->count(),
+            'selectedCity' => $this->selectedCity,
+            'selectedCategory' => $this->selectedCategory,
+            'purpose' => $this->purpose,
+            'searchQuery' => $this->searchQuery,
         ])->layout('layouts.app');
     }
 }
