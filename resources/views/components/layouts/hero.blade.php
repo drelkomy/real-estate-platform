@@ -2,16 +2,6 @@
     $heroLocale = app()->getLocale();
     $heroIsRtl = $heroLocale === 'ar';
 
-    $categories = [
-        'all' => ['label' => 'جميع العقارات', 'label_en' => 'All Properties', 'icon' => 'fa-city', 'color' => '#FEBB02'],
-        'villas' => ['label' => 'فلل وقصور فاخرة', 'label_en' => 'Luxury Villas & Mansions', 'icon' => 'fa-landmark', 'color' => '#FB7185'],
-        'apartments' => ['label' => 'شقق وبنتهاوس', 'label_en' => 'Apartments & Penthouses', 'icon' => 'fa-building', 'color' => '#34D399'],
-        'duplex' => ['label' => 'دوبلكس وتاون هاوس', 'label_en' => 'Duplex & Townhouses', 'icon' => 'fa-layer-group', 'color' => '#A78BFA'],
-        'chalets' => ['label' => 'شاليهات ومنتجعات', 'label_en' => 'Chalets & Resorts', 'icon' => 'fa-umbrella-beach', 'color' => '#FB923C'],
-        'commercial' => ['label' => 'أبراج ومكاتب تجارية', 'label_en' => 'Commercial Towers', 'icon' => 'fa-briefcase', 'color' => '#22D3EE'],
-        'lands' => ['label' => 'مخططات وأراضي استثمارية', 'label_en' => 'Investment Lands', 'icon' => 'fa-map-marked-alt', 'color' => '#FBBF24'],
-    ];
-
     $citiesList = [
         ['id' => 'riyadh', 'name_ar' => 'الرياض', 'name_en' => 'Riyadh'],
         ['id' => 'dubai', 'name_ar' => 'دبي', 'name_en' => 'Dubai'],
@@ -20,86 +10,46 @@
         ['id' => 'zayed', 'name_ar' => 'الشيخ زايد', 'name_en' => 'Sheikh Zayed'],
         ['id' => 'khobar', 'name_ar' => 'الخبر', 'name_en' => 'Al Khobar'],
     ];
+
+    $propertyTypes = [
+        'all' => ['label' => 'جميع الأنواع', 'label_en' => 'All Types'],
+        'villas' => ['label' => 'فلل وقصور فاخرة', 'label_en' => 'Luxury Villas & Mansions'],
+        'apartments' => ['label' => 'شقق وبنتهاوس', 'label_en' => 'Apartments & Penthouses'],
+        'duplex' => ['label' => 'دوبلكس وتاون هاوس', 'label_en' => 'Duplex & Townhouses'],
+        'chalets' => ['label' => 'شاليهات ومنتجعات', 'label_en' => 'Chalets & Resorts'],
+        'commercial' => ['label' => 'أبراج ومكاتب تجارية', 'label_en' => 'Commercial Towers'],
+        'lands' => ['label' => 'مخططات وأراضي استثمارية', 'label_en' => 'Investment Lands'],
+    ];
 @endphp
 
-{{-- ===== Booking.com Style Compact Royal Navy (#071529) & Imperial Gold (#D4AF37) Hero Section ===== --}}
-<div class="relative w-full bg-[#071529] text-white pt-4 sm:pt-5 lg:pt-6 pb-0 shadow-md overflow-visible z-30 font-cairo"
+{{-- ===== Signature Hero Section Inspired by Official Real Estate Portals ===== --}}
+<div class="relative w-full bg-[#071529] text-white pt-6 sm:pt-8 lg:pt-10 pb-0 shadow-md overflow-visible z-30 font-cairo"
      dir="{{ $heroIsRtl ? 'rtl' : 'ltr' }}">
 
-    <div class="relative max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-        {{-- Category Pills Row with Colorful Icons & Smooth Horizontal Scroll --}}
-        <div class="mb-2.5 sm:mb-3 lg:mb-3.5"
-             x-data="{
-                 isDown: false,
-                 startX: 0,
-                 scrollStart: 0,
-                 hasDragged: false,
-                 onMouseDown(e) {
-                     this.isDown = true;
-                     this.hasDragged = false;
-                     this.startX = e.pageX - this.$refs.catSlider.offsetLeft;
-                     this.scrollStart = this.$refs.catSlider.scrollLeft;
-                 },
-                 onMouseMove(e) {
-                     if (!this.isDown) return;
-                     const x = e.pageX - this.$refs.catSlider.offsetLeft;
-                     const walk = x - this.startX;
-                     if (Math.abs(walk) > 4) {
-                         this.hasDragged = true;
-                         e.preventDefault();
-                     }
-                     this.$refs.catSlider.scrollLeft = this.scrollStart - walk;
-                 },
-                 onMouseUp() {
-                     if (this.isDown) {
-                         this.isDown = false;
-                         setTimeout(() => { this.hasDragged = false; }, 60);
-                     }
-                 },
-                 onClickCapture(e) {
-                     if (this.hasDragged) {
-                         e.preventDefault();
-                         e.stopPropagation();
-                     }
-                 }
-             }"
-             @mouseup.window="onMouseUp()"
-             @mouseleave="onMouseUp()">
-
-            <div x-ref="catSlider"
-                 @mousedown="onMouseDown($event)"
-                 @mousemove="onMouseMove($event)"
-                 @click.capture="onClickCapture($event)"
-                 class="flex items-center gap-2 sm:gap-2.5 overflow-x-auto no-scrollbar py-2 justify-start flex-nowrap -mx-4 px-5 sm:mx-0 sm:px-2 select-none cursor-grab active:cursor-grabbing"
-                 dir="{{ $heroIsRtl ? 'rtl' : 'ltr' }}">
-                @foreach($categories as $catKey => $cat)
-                    @php
-                        $isActive = ($selectedCategory ?? 'all') === $catKey;
-                    @endphp
-                    <button type="button"
-                            wire:click="setCategory('{{ $catKey }}')"
-                            class="group shrink-0 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full transition-all duration-200 flex items-center gap-2 text-[11.5px] sm:text-xs font-bold cursor-pointer whitespace-nowrap select-none border-0 shadow-none {{ $isActive ? 'bg-[#D4AF37] text-slate-950 font-black shadow-sm' : 'bg-white/10 hover:bg-white/20 text-white/95 hover:text-white' }}">
-                        <i class="fas {{ $cat['icon'] }} text-[11px] sm:text-xs pointer-events-none" style="color: {{ $isActive ? '#071529' : $cat['color'] }};"></i>
-                        <span class="pointer-events-none">{{ $heroIsRtl ? $cat['label'] : $cat['label_en'] }}</span>
-                    </button>
-                @endforeach
-            </div>
+        {{-- Official Certification Badge --}}
+        <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/35 text-[#F3E5AB] text-[11px] sm:text-xs font-bold mb-3 shadow-xs">
+            <i class="fas fa-shield-alt text-[#D4AF37] text-xs"></i>
+            <span>{{ $heroIsRtl ? 'المنصة العقارية الرسمية المعتمدة • مرخصة برخصة فال' : 'Official FAL-Certified Luxury Real Estate Platform' }}</span>
         </div>
 
-        {{-- Hero Headlines (Slightly Reduced Font Size & Snug Spacing) --}}
-        <div class="mb-3 sm:mb-3.5 lg:mb-4 {{ $heroIsRtl ? 'text-right' : 'text-left' }}">
-            <h1 class="text-base sm:text-lg md:text-xl lg:text-2xl font-black text-white tracking-tight leading-snug drop-shadow-sm font-cairo">
-                {{ $heroIsRtl ? 'ابحث عن عقارك المثالي للبيع أو الإيجار في أرقى المواقع' : 'Find Your Ideal Property For Sale or Rent' }}
+        {{-- Hero Headline --}}
+        <div class="mb-5 sm:mb-6 max-w-3xl mx-auto">
+            <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight font-cairo">
+                @if($heroIsRtl)
+                    منصة العقارات الفاخرة — <span class="text-[#D4AF37]">ابحث عن عقارك المثالي</span>
+                @else
+                    Official Luxury Real Estate — <span class="text-[#D4AF37]">Find Your Dream Property</span>
+                @endif
             </h1>
-            <p class="text-[11.5px] sm:text-xs md:text-sm font-semibold text-white/85 mt-1 sm:mt-1.5 leading-relaxed">
-                {{ $heroIsRtl ? 'عروض عقارية موثقة ومعتمدة برخصة فال من كبار المطورين والوسطاء العقاريين' : 'Curated luxury listings and verified FAL-certified properties across premier destinations' }}
+            <p class="text-xs sm:text-sm md:text-base font-medium text-slate-300 mt-2 max-w-2xl mx-auto leading-relaxed">
+                {{ $heroIsRtl ? 'تصفّح آلاف العقارات والقصور والفلل الموثّقة — شراء أو استثمار بثقة تامة على المنصة الرسمية' : 'Browse verified prime properties, villas, and off-market estates directly from authorized developers & brokers' }}
             </p>
         </div>
 
-        {{-- Floating Search Bar Capsule with Signature Imperial Gold Border (#D4AF37) --}}
-        {{-- Overlapping the bottom edge of the Hero (Half in Hero, Half in Content Below) --}}
-        <div class="relative z-30 translate-y-6 sm:translate-y-8 lg:translate-y-10 mb-2 sm:mb-4 lg:mb-0" dir="{{ $heroIsRtl ? 'rtl' : 'ltr' }}">
+        {{-- Floating Search Filter Capsule with Imperial Gold Frame --}}
+        <div class="relative z-30 translate-y-6 sm:translate-y-8 lg:translate-y-10 mb-2 sm:mb-4 lg:mb-0 text-start" dir="{{ $heroIsRtl ? 'rtl' : 'ltr' }}">
             <div class="bg-[#D4AF37] p-1 sm:p-1.5 rounded-2xl shadow-xl">
                 <form wire:submit.prevent="applySearch" class="grid grid-cols-12 lg:flex lg:flex-row lg:items-stretch gap-1 sm:gap-1.5">
 
@@ -131,9 +81,9 @@
                                 {{ $heroIsRtl ? 'الهدف' : 'Purpose' }}
                             </label>
                             <select wire:model.live="purpose" class="w-full bg-transparent text-xs sm:text-sm font-black text-slate-900 outline-none border-0 p-0 focus:ring-0 cursor-pointer">
-                                <option value="all" class="text-slate-900 font-bold">{{ $heroIsRtl ? 'الكل (بيع وإيجار)' : 'All' }}</option>
-                                <option value="sale" class="text-slate-900 font-bold">{{ $heroIsRtl ? 'للبيع' : 'For Sale' }}</option>
-                                <option value="rent" class="text-slate-900 font-bold">{{ $heroIsRtl ? 'للإيجار' : 'For Rent' }}</option>
+                                <option value="all" class="text-slate-900 font-bold">{{ $heroIsRtl ? 'الكل (شراء وإيجار)' : 'All' }}</option>
+                                <option value="sale" class="text-slate-900 font-bold">{{ $heroIsRtl ? 'شراء' : 'For Sale' }}</option>
+                                <option value="rent" class="text-slate-900 font-bold">{{ $heroIsRtl ? 'إيجار' : 'For Rent' }}</option>
                             </select>
                         </div>
                     </div>
@@ -148,7 +98,7 @@
                                 {{ $heroIsRtl ? 'نوع العقار' : 'Property Type' }}
                             </label>
                             <select wire:model.live="selectedCategory" class="w-full bg-transparent text-xs sm:text-sm font-black text-slate-900 outline-none border-0 p-0 focus:ring-0 cursor-pointer">
-                                @foreach($categories as $k => $c)
+                                @foreach($propertyTypes as $k => $c)
                                     <option value="{{ $k }}" class="text-slate-900 font-bold">{{ $heroIsRtl ? $c['label'] : $c['label_en'] }}</option>
                                 @endforeach
                             </select>
@@ -176,7 +126,7 @@
                         <button type="submit"
                                 class="w-full min-h-[46px] rounded-xl bg-[#071529] hover:bg-[#0A1B33] text-[#D4AF37] hover:text-[#F3E5AB] text-xs sm:text-sm font-black shadow-md flex items-center justify-center gap-2 transition cursor-pointer border border-[#D4AF37]/30 hover:scale-[1.02] active:scale-[0.98]">
                             <i class="fas fa-search text-xs"></i>
-                            <span>{{ $heroIsRtl ? 'بحث فوري' : 'Search' }}</span>
+                            <span>{{ __('Search') }}</span>
                         </button>
                     </div>
 

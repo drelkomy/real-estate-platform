@@ -3,11 +3,14 @@
 @endphp
 
 <div>
-    {{-- 1. Signature Hero Section with Draggable Categories and Floating Search Capsule --}}
+    {{-- 1. Signature Hero Section with Floating Search Capsule (ملف منفصل مستقل) --}}
     @include('components.layouts.hero')
 
-    {{-- 2. Platform Value Props / Trust Indicators in Deep Navy & Gold --}}
-    <section class="relative max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-16 pb-8">
+    {{-- 2. Developed Categories Showcase Section (ملف منفصل مستقل - منقولة للأسفل ومطورة) --}}
+    @include('components.layouts.categories-showcase')
+
+    {{-- 3. Platform Value Props / Trust Indicators in Deep Navy & Gold --}}
+    <section class="relative max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div class="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 hover:border-[#D4AF37]/50 shadow-xs hover:shadow-md transition-all flex items-center gap-3.5 group">
                 <div class="w-12 h-12 rounded-xl bg-[#071529] text-[#D4AF37] flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform shadow-sm">
