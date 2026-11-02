@@ -1,11 +1,18 @@
 @import 'tailwindcss';
 
-@source '../views';
-@source '../../app';
+@source '../views/**/*.blade.php';
+@source '../../app/**/*.php';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme {
     --font-cairo: 'Cairo', 'Outfit', sans-serif;
     --font-sans: 'Cairo', 'Outfit', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+    --color-brand-navy: #071529;
+    --color-brand-navy-light: #0A1B33;
+    --color-brand-navy-surface: #0D2342;
+    --color-brand-navy-dark: #040D1A;
+    --color-brand-gold: #D4AF37;
+    --color-brand-gold-light: #F3E5AB;
+    --color-brand-gold-dark: #AA7C11;
 }

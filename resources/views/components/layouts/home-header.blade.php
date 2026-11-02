@@ -1,17 +1,17 @@
 <header class="sticky top-0 z-50 bg-[#071529]/95 border-b border-[#D4AF37]/25 text-white shadow-lg backdrop-blur-md">
     <div class="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-16 sm:h-18">
 
             {{-- Brand Logo in Royal Gold & Navy --}}
-            <a href="{{ url('/') }}" class="flex items-center gap-3 text-white no-underline group">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#AA7C11] via-[#D4AF37] to-[#F3E5AB] text-slate-950 flex items-center justify-center text-xl shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300">
+            <a href="{{ url('/') }}" class="flex items-center gap-2.5 text-white no-underline group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#AA7C11] via-[#D4AF37] to-[#F3E5AB] text-slate-950 flex items-center justify-center text-lg sm:text-xl shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300">
                     🏢
                 </div>
                 <div>
-                    <span class="block font-black text-lg tracking-tight text-white leading-tight">
+                    <span class="block font-black text-base sm:text-lg tracking-tight text-white leading-tight">
                         {{ config('app.name', 'Real Estate Platform') }}
                     </span>
-                    <span class="block text-[10px] text-[#D4AF37] font-black uppercase tracking-wider flex items-center gap-1">
+                    <span class="block text-[9.5px] sm:text-[10px] text-[#D4AF37] font-black uppercase tracking-wider flex items-center gap-1">
                         <i class="fas fa-crown text-[8px]"></i>
                         <span>{{ __('Luxury Real Estate Hub') }}</span>
                     </span>

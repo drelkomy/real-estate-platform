@@ -23,36 +23,6 @@
     {{-- FontAwesome 6 Icons --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    {{-- Tailwind CSS CDN for instant styling parity --}}
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            navy: '#071529',
-                            navyLight: '#0A1B33',
-                            navySurface: '#0D2342',
-                            navyDark: '#040D1A',
-                            gold: '#D4AF37',
-                            goldLight: '#F3E5AB',
-                            goldLighter: '#FDF7E7',
-                            goldDark: '#AA7C11',
-                            goldMuted: '#996515',
-                            emerald: '#10B981',
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        outfit: ['Outfit', 'sans-serif'],
-                        sans: ['{{ app()->getLocale() === "ar" ? "Cairo" : "Outfit" }}', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
 
@@ -67,7 +37,7 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col font-cairo bg-slate-50 text-slate-900 antialiased selection:bg-[#003580] selection:text-white">
+<body class="min-h-screen flex flex-col font-cairo bg-slate-50 text-slate-900 antialiased selection:bg-[#071529] selection:text-[#D4AF37]">
 
     {{-- 1. Navigation Header (ملف منفصل مستقل) --}}
     @include('components.layouts.home-header')

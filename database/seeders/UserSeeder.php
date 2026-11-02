@@ -50,4 +50,3 @@ class UserSeeder extends Seeder
         $client->assignRole('client');
     }
 }
-
